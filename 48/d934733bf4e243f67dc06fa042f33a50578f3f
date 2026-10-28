@@ -1,0 +1,83 @@
+README.md
+  s_f834b09b10596f::t_9860dfa1720df6 1-36
+docs/4471-split.rendered.html
+  s_f834b09b10596f::t_02f7671a717f9c 1-18
+src/lib/data/desk-notes.json
+  s_f834b09b10596f::t_225fd59b6644e4 1-9
+src/lib/data/reports-4471.json
+  s_f834b09b10596f::t_d2693824f4e0a3 1-5980
+src/lib/data/tenants/alder.physio.json
+  s_f834b09b10596f::t_08b57617eaddae 1-6
+src/lib/data/tenants/copper.studio.json
+  s_f834b09b10596f::t_93b2c8e80efb71 1-6
+src/lib/data/tenants/harbour.dental.json
+  s_f834b09b10596f::t_73284ca08146e0 1-6
+src/lib/data/tenants/kettle.books.json
+  s_f834b09b10596f::t_c25d5840ebc019 1-6
+src/lib/data/tenants/lantern.row.json
+  s_f834b09b10596f::t_a0f02b9eb18eb6 1-6
+src/lib/data/tenants/long.table.json
+  s_f834b09b10596f::t_29755c4e65efe1 1-6
+src/lib/data/tenants/morrow.tax.json
+  s_f834b09b10596f::t_3d20bdba9a9453 1-6
+src/lib/data/tenants/nine.lanterns.json
+  s_f834b09b10596f::t_23998ed67ac0e6 1-6
+src/lib/data/tenants/pale.harbour.json
+  s_f834b09b10596f::t_29201b6c2bbbed 1-6
+src/lib/data/tenants/ridge.clinic.json
+  s_f834b09b10596f::t_274bb8944e49aa 1-6
+src/lib/data/tenants/stone.and.sons.json
+  s_f834b09b10596f::t_fccec06f717e5a 1-6
+src/lib/kb/Callout.svelte
+  s_f834b09b10596f::t_dab1e90513ea15 1-12
+src/lib/kb/CauseTable.svelte
+  s_f834b09b10596f::t_fa942acd945423 1-56
+src/lib/kb/DedupeExplorer.svelte
+  s_f834b09b10596f::t_108bdb734eb5a2 1-48
+src/lib/kb/KbIndex.svelte
+  s_f834b09b10596f::t_99a4727b40ba50 1-28
+src/lib/kb/ProblemSplit.svelte
+  s_f834b09b10596f::t_128ad464abad84 1-41
+src/lib/kb/QueueTimeline.svelte
+  s_f834b09b10596f::t_d498549197c885 1-50
+src/lib/kb/RenderStamp.svelte
+  s_f834b09b10596f::t_5cd7004a6aeaae 1-20
+src/lib/kb/causes.ts
+  s_f834b09b10596f::t_b6d57166bc9944 1-97
+src/lib/kb/dedupe-cases.ts
+  s_f834b09b10596f::t_09dfb8d51aa5c5 1-31
+src/lib/kb/desk-ref.ts
+  s_f834b09b10596f::t_90d0cc11f01273 1-27
+src/lib/kb/locales.ts
+  s_f834b09b10596f::t_853baa78b4b741 1-15
+src/lib/kb/staleness.ts
+  s_f834b09b10596f::t_a29414b85fb7e4 1-13
+src/lib/layouts/runbook.svelte
+  s_f834b09b10596f::t_4a9a7def98c552 1-62
+src/routes/kb/+page.svx
+  s_f834b09b10596f::t_cb6a24511707fc 1-25
+src/routes/kb/decisions/0001-dedupe-by-subject/+page.svx
+  s_f834b09b10596f::t_5f67a93a8e1da1 1-25
+src/routes/kb/incidents/4471-split/+page.svx
+  s_f834b09b10596f::t_e795f15909dded 1-56
+src/routes/kb/incidents/4471/+page.svx
+  s_f834b09b10596f::t_05e17209e60a81 1-36
+src/routes/kb/triage/dedupe/+page.svx
+  s_f834b09b10596f::t_e7e76667692c58 1-37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "48d934733bf4e243f67dc06fa042f33a50578f3f",
+  "prompts": {},
+  "sessions": {
+    "s_f834b09b10596f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "3785fb00-1899-4245-b559-fea07b7d065a",
+        "model": "claude-sonnet-5-5"
+      },
+      "human_author": "Lindsey Tibbitts <ltibbitts@bestpass.com>"
+    }
+  }
+}
