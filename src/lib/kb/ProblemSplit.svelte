@@ -10,12 +10,14 @@
   const merged = $derived(uniqueById(rows).filter((r) => r.mergedInto === ticket));
   const repeats = $derived(rows.filter((r) => r.mergedInto === ticket).length - merged.length);
 
-  // A report the desk read as a one-day move is its own problem, whatever its tenant's locale says.
-  const problem = (r: Report) => (notes.oneDayMove.includes(r.id) ? 'one-day' : causeOf(r, tenantOf(r)));
+  // Counted the desk's way: where the tenant files each report. The one-day reports are also a problem
+  // of their own, so that row overlaps the one they are filed under.
+  const problem = (r: Report) => (notes.oneDayMove.includes(r.id) ? ['one-day', causeOf(r, tenantOf(r))] : [causeOf(r, tenantOf(r))]);
 
-  const count = (p: string) => merged.filter((r) => problem(r) === p).length;
-  const tagged = (p: string, tag: string) => merged.filter((r) => problem(r) === p && r.meta.intakeTag === tag).length;
-  const tenants = (p: string) => new Set(merged.filter((r) => problem(r) === p).map((r) => r.tenant)).size;
+  const of = (p: string) => merged.filter((r) => problem(r).includes(p as never));
+  const count = (p: string) => of(p).length;
+  const tagged = (p: string, tag: string) => of(p).filter((r) => r.meta.intakeTag === tag).length;
+  const tenants = (p: string) => new Set(of(p).map((r) => r.tenant)).size;
 
   const table = $derived(
     [

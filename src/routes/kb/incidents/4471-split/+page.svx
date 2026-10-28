@@ -25,6 +25,9 @@ Not one known bug. Fixing the parser will not fix problems 2 and 3.
 
 <ProblemSplit ticket={4471} />
 
+Counts follow the desk's own view: a report is counted where its tenant files it. The one-day
+reports (problem 3) are filed under problem 1, so they are in its count and in their own.
+
 ## 1 · The shared parser reads dates month first
 
 Day-first tenants (en-GB, nl-NL, cs-CZ, fr-FR, it-IT, pl-PL, da-DK, en-IE, and the rest through
