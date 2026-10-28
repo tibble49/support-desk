@@ -1,0 +1,56 @@
+---
+layout: runbook
+title: '#4471 · what it really holds'
+owner: support desk
+status: proposed
+reviewed: 2026-10-28
+signature: v1.eyJzdWIiOiI0NzExIiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMxOTczNzgsImV4cCI6MTc5MzI4Mzc3OH0.0-lptKZJ-MK2LDpiA5j4cFVv1227Kng2UU8rdfWyIaM
+---
+
+<script>
+  import ProblemSplit from '#lib/kb/ProblemSplit.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+[#4471](/kb/incidents/4471) was merged as one issue, "dates parse mm/dd in eu locales". Read
+report by report, it holds three different problems. Only the first is the one the fix queue
+is aimed at.
+
+<Callout kind="warn">
+Not one known bug. Fixing the parser will not fix problems 2 and 3.
+</Callout>
+
+## The split
+
+<ProblemSplit ticket={4471} />
+
+## 1 · The shared parser reads dates month first
+
+Day-first tenants (en-GB, nl-NL, cs-CZ, fr-FR, it-IT, pl-PL, da-DK, en-IE, and the rest through
+the app, email and booking-v2 forms) see day and month swapped: "booked 2 December, invite says
+12 February". This is what #4471 was filed for.
+
+## 2 · booking-v3 form prints the wrong hint
+
+Tenants on booking-v3 with a day-first locale (copper.studio, alder.physio, pale.harbour) type
+what the hint under the date field tells them: month first. The form then reads it day first.
+The parser is not at fault; the hint is. A parser fix leaves these reports open. It affects the
+form channel only.
+
+## 3 · Bookings one day off
+
+A small group of reports are not a day/month swap: the date is one day off ("every booking in June is
+one day off", "the invite arrived before I made the booking", Lisbon and Toronto getting
+different days for one meeting). That is a timezone or day-boundary problem. By tenant locale
+the desk filed them under problem 1; the desk's own note
+(`desk-notes.json`, `oneDayMove`) lists them: R-41202, R-41209, R-41236, R-41344, R-41620.
+
+## Why the merge hid this
+
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges on subject line. Intake tags are a
+guess from the reporter's browser and disagree with the real cause for dozens of reports. Merge
+on cause (tenant locale, booking form, channel), not subject; see
+[triage](/kb/triage/dedupe).
+
+<RenderStamp {signature} />

@@ -1,0 +1,18 @@
+<!doctype html><meta charset=utf-8><title>#4471 · what it really holds · support kb</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:2rem auto;padding:0 16px;background:#fbfaf7;color:#1d1d1b}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #e3e0d8;padding:.35rem .5rem;text-align:left}aside{border-left:4px solid #b4501f;background:#fbeee6;padding:.5rem 1rem}.meta{color:#6b6a66;font-size:.85rem}.stamp{font:.85rem monospace;color:#6b6a66}</style>
+<a href="/kb">support desk · kb</a><h1>#4471 · what it really holds</h1>
+<p class=meta>owner <b>support desk</b> · proposed · reviewed 2026-10-28 · 0 days ago</p>
+<p><a href="/kb/incidents/4471">#4471</a> was merged as one issue, "dates parse mm/dd in eu locales". Read report by report, it holds three different problems. Only the first is the one the fix queue is aimed at.</p>
+<aside>Not one known bug. Fixing the parser will not fix problems 2 and 3.</aside>
+<h2>The split</h2>
+<p><strong>412</strong> unique reports merged into #4471 (15 repeats in the export removed) · <strong>3</strong> problems</p>
+<table><thead><tr><th>problem</th><th>reports</th><th>tenants</th><th>tagged wrong by intake</th></tr></thead><tbody>
+<tr><td><code>parser</code> · shared parser reads dates month first</td><td>374</td><td>11</td><td>23</td></tr>
+<tr><td><code>hint</code> · booking-v3 form hints MM/DD/YYYY to day-first tenants</td><td>33</td><td>3</td><td>15</td></tr>
+<tr><td><code>one-day</code> · bookings land exactly one day off</td><td>5</td><td>5</td><td>0</td></tr>
+</tbody></table>
+<h2>1 · The shared parser reads dates month first</h2><p>Day-first tenants see day and month swapped. This is what #4471 was filed for.</p>
+<h2>2 · booking-v3 form prints the wrong hint</h2><p>Tenants on booking-v3 with a day-first locale (copper.studio, alder.physio, pale.harbour) type month first, as the hint says. The form reads it day first. A parser fix leaves these open. Form channel only.</p>
+<h2>3 · Bookings one day off</h2><p>Timezone or day-boundary problem. Listed in desk-notes.json (oneDayMove): R-41202, R-41209, R-41236, R-41344, R-41620.</p>
+<h2>Why the merge hid this</h2><p>Decision 0001 merges on subject line. Intake tags are a guess from the browser. Merge on cause (tenant locale, booking form, channel), not subject.</p>
+<p class=stamp>desk ref <b>DR-DEKR-HJQY</b></p>
